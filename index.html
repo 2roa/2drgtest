@@ -44,7 +44,7 @@
     "@type": "Organization",
     "name": "Две Дороги",
     "url": "https://2roa.github.io/2drgtest/",
-    "logo": "собери файл index.html/img/logo.svg",
+   "logo": "https://2roa.github.io/2drgtest/img/logo.svg"
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Санкт-Петербург",
@@ -399,19 +399,23 @@ class="order-form">
  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  <script>
    document.addEventListener('DOMContentLoaded', function() {
-     new Swiper('.reviews-swiper', {
-       loop: true,
-       navigation: {
-         nextEl: '.swiper-button-next',
-         prevEl: '.swiper-button-prev'
-       },
-       pagination: {
-         el: '.swiper-pagination'
-       },
-       keyboard: {
-         enabled: true
-       }
-     });
+   new Swiper('.reviews-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  keyboard: {
+    enabled: true
+  }
+});
    });
  </script>
  
