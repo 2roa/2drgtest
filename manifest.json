@@ -1,6 +1,7 @@
 {
+  "name": "Грузоперевозки СПб — Две Дороги",
   "short_name": "Две Дороги",
-  "start_url": "/",
+  "start_url": "/2drgtest/",
   "display": "standalone",
   "theme_color": "#235290",
   "background_color": "#ffffff",
@@ -27,5 +28,3 @@
     }
   ]
 }
-
-  
