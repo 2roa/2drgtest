@@ -126,7 +126,9 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.06); /* Легкая тень */
   transition: background 0.2s, color 0.2s; /* Плавная смена */
 }
-
+#form {
+  scroll-margin-top: 160px; /* Учитывает высоту фиксированной шапки */
+}
 .header-btn:hover {
   background: #ffd54c;         /* Светлее при наведении */
   color: #163257;              /* Цвет текста не меняется */
