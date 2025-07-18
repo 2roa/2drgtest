@@ -127,7 +127,7 @@ header {
   transition: background 0.2s, color 0.2s; /* Плавная смена */
 }
 #form {
-  scroll-margin-top: 165px; /* Учитывает высоту фиксированной шапки */
+  scroll-margin-top: 180px; /* Учитывает высоту фиксированной шапки */
 }
 .header-btn:hover {
   background: #ffd54c;         /* Светлее при наведении */
