@@ -1,258 +1,263 @@
 /****************************************
   ОБЩИЕ НАСТРОЙКИ
 ****************************************/
-html { 
+html {
   scroll-behavior: smooth; /* Плавная прокрутка */
 }
+
+:root {
+  --logo-h: 128px;                                   /* базовая высота логотипа (десктоп) */
+  --gap-under-header: calc(var(--logo-h) * 1.21875); /* 156/128 — пропорциональный зазор */
+  --section-space: 56px;                             /* единый вертикальный отступ секций (десктоп) */
+}
+
 body {
-  font-family: Arial, sans-serif; /* Современный шрифт */
-  margin: 0;                     /* Убираем отступы браузера */
-  padding: 0;                    /* Убираем внутренние отступы */
-  background: #f7fafd;           /* Светлый фон страницы */
-  color: #222;                   /* Основной цвет текста */
-  padding-top: 156px;            /* Отступ под фиксированную шапку */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7fafd;
+  color: #222;
+  padding-top: var(--gap-under-header); /* отступ под фиксированную шапку */
 }
 
 /****************************************
   ШАПКА САЙТА (fixed header)
 ****************************************/
 header {
-  position: fixed;                          /* Фиксированное позиционирование */
-  top: 0;                                   /* Отступ сверху 0 */
-  left: 0;                                  /* Отступ слева 0 */
-  width: 100%;                              /* На всю ширину экрана */
-  z-index: 100;                             /* Слой поверх контента */
-  background: rgba(35, 82, 144, 0.79);      /* Синий фон с прозрачностью */
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);  /* Тень под шапкой */
-  backdrop-filter: blur(14px);              /* Эффект размытия (стекло) */
-  -webkit-backdrop-filter: blur(14px);      /* Размытие для Safari */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(35, 82, 144, 0.79);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .header-inner {
-  max-width: 1100px;           /* Максимальная ширина блока */
-  margin: 0 auto;              /* Центрирование блока */
-  display: flex;               /* Flex-контейнер */
-  align-items: center;         /* Выравнивание по центру по вертикали */
-  justify-content: space-between; /* Распределение по краям */
-  padding: 14px 24px;          /* Внутренний отступ сверху/снизу и по бокам */
-  
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
 }
 
 .logo-link {
-  display: flex;               /* Контейнер flex */
-  align-items: center;         /* Центрируем логотип по вертикали */
-  
+  display: flex;
+  align-items: center;
 }
 
-/* Пропорции свисания как на десктопе:
-   - margin-top = -25% высоты
-   - margin-bottom = -48.4375% высоты */
+/* пропорции свисания как на десктопе:
+   margin-top = -25% высоты, margin-bottom = -48.4375% высоты */
 .logo {
-  --logo-h: 128px;                           /* базовая высота логотипа (десктоп) */
-  width: var(--logo-h);                      /* 128px */
-  height: var(--logo-h);                     /* 128px */
-  margin-top: calc(var(--logo-h) * -0.25);   /* -32px */
-  margin-bottom: calc(var(--logo-h) * -0.484375); /* -62px */
-  object-fit: cover;           /* Сохраняет пропорции */
-  display: block;              /* Блочный элемент */
-  margin-right: 28px;  
+  width: var(--logo-h);
+  height: var(--logo-h);
+  margin-top: calc(var(--logo-h) * -0.25);
+  margin-bottom: calc(var(--logo-h) * -0.484375);
+  object-fit: cover;
+  display: block;
+  margin-right: 28px;
 }
-
 
 .site-title-block {
-  display: flex;               /* Flex-контейнер */
-  flex-direction: column;      /* Вертикально */
-  align-items: flex-start;     /* Текст слева */
-  margin-right: auto;          /* Отодвигает от контактов */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: auto;
 }
 
 .site-name {
-  font-size: 48px;             /* Крупный заголовок */
-  font-weight: 700;            /* Жирный */
-  color: #fff;                 /* Белый текст */
-  margin: 0;                   /* Нет внешнего отступа */
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
 }
 
 .site-tagline {
-  font-size: 16px;             /* Размер подзаголовка */
-  color: #e0e8f3;              /* Светло-синий */
-  margin-top: 3px;             /* Отступ сверху */
+  font-size: 16px;
+  color: #e0e8f3;
+  margin-top: 3px;
 }
 
 .header-contacts {
-  display: flex;               /* Flex для контактов */
-  align-items: center;         /* Центрируем по вертикали */
-  gap: 20px;                   /* Промежуток между контактами */
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .header-phone {
-  font-size: 24px;             /* Размер номера */
-  color: #fff;                 /* Цвет текста */
-  text-decoration: none;       /* Без подчеркивания */
-  font-weight: 500;            /* Полужирный */
-  transition: color 0.2s;      /* Плавная смена цвета */
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .header-phone:hover {
-  color: #ffe082;              /* Цвет при наведении */
+  color: #ffe082;
 }
 
 .header-socials {
-  display: flex;               /* Flex-контейнер */
-  gap: 10px;                   /* Промежуток между иконками */
+  display: flex;
+  gap: 10px;
 }
 
 .social-link {
-  display: inline-flex;        /* Inline-flex элемент */
-  align-items: center;         /* Центрируем иконку */
+  display: inline-flex;
+  align-items: center;
 }
 
 .social-icon {
-  width: 42px;                 /* Размер иконки */
+  width: 42px;
   height: 42px;
-  display: block;              /* Блочный элемент */
-  transition: transform 0.18s; /* Анимация при наведении */
+  display: block;
+  transition: transform 0.18s;
 }
 
 .social-link:hover .social-icon {
-  transform: scale(1.13);      /* Увеличение при наведении */
+  transform: scale(1.13);
 }
 
 .header-btn {
-  background: #f9be19;         /* Желтая кнопка */
-  color: #163257;              /* Цвет текста */
-  font-weight: 700;            /* Жирный */
-  font-size: 15px;             /* Размер шрифта */
-  padding: 11px 24px;          /* Внутренние отступы */
-  border-radius: 7px;          /* Скругление */
-  text-decoration: none;       /* Без подчеркивания */
-  border: none;                /* Без границы */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06); /* Легкая тень */
-  transition: background 0.2s, color 0.2s; /* Плавная смена */
-}
-#form {
-  scroll-margin-top: 180px; /* Учитывает высоту фиксированной шапки */
-}
-.header-btn:hover {
-  background: #ffd54c;         /* Светлее при наведении */
-  color: #163257;              /* Цвет текста не меняется */
+  background: #f9be19;
+  color: #163257;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 11px 24px;
+  border-radius: 7px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s, color 0.2s;
 }
 
-body {
-  padding-top: 156px;          /* Отступ вниз для фиксированной шапки */
+.header-btn:hover {
+  background: #ffd54c;
+  color: #163257;
+}
+
+#form {
+  /* было фиксированное 180px: теперь учитываем реальную высоту шапки + небольшой зазор */
+  scroll-margin-top: calc(var(--gap-under-header) + 24px);
 }
 
 /****************************************
   ПЕРВЫЙ ЭКРАН (Hero)
 ****************************************/
 .hero {
-  background: #e9eff6; /* Градиент */
-  color: #235390;                 /* Белый текст */
-  padding: 85px 0 56px 0;      /* Отступ сверху и снизу */
-  text-align: center;          /* Центрируем текст */
+  background: #e9eff6;
+  color: #235390;
+  padding: var(--section-space) 0; /* единый отступ */
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: 36px;             /* Крупный заголовок */
-  margin-bottom: 18px;         /* Отступ снизу */
+  font-size: 36px;
+  margin-bottom: 18px;
 }
 
 .hero-subtitle {
-  font-size: 19px;             /* Размер подзаголовка */
-  margin-bottom: 24px;         /* Отступ снизу */
-  color: #fff;                 /* Белый текст */
+  font-size: 19px;
+  margin-bottom: 24px;
+  color: #fff;
 }
 
 .hero-features {
-  list-style: none;            /* Убираем маркеры */
-  padding: 0;                  /* Без отступов */
-  margin: 0 0 28px 0;          /* Отступ только снизу */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
 }
 
 .hero-features li {
-  font-size: 17px;             /* Размер текста */
-  margin: 8px 0;               /* Отступы сверху/снизу */
-  color: #222;                 /* Белый текст */
+  font-size: 17px;
+  margin: 8px 0;
+  color: #222;
 }
 
 .hero-btn {
-  background: #f9be19;         /* Желтая кнопка */
-  color: #163257;              /* Синий текст */
-  font-weight: 700;            /* Жирный */
-  font-size: 17px;             /* Размер шрифта */
-  padding: 14px 38px;          /* Внутренние отступы */
-  border-radius: 7px;          /* Скругление */
-  text-decoration: none;       /* Без подчеркивания */
-  border: none;                /* Без границы */
-  transition: background 0.2s, color 0.2s; /* Анимация */
+  background: #f9be19;
+  color: #163257;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 14px 38px;
+  border-radius: 7px;
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
 }
 
 .hero-btn:hover {
-  background: #ffd54c;         /* Светлее при наведении */
-  color: #163257;              /* Цвет текста не меняется */
+  background: #ffd54c;
+  color: #163257;
 }
 
 /****************************************
   О КОМПАНИИ
 ****************************************/
 .about {
-  background: #fff;         /* Светло-голубой фон */
-  padding: 44px 0;             /* Отступы сверху/снизу */
-  text-align: center;          /* Центрирование текста */
+  background: #fff;
+  padding: var(--section-space) 0; /* единый отступ */
+  text-align: center;
 }
 
 .about h2 {
-  font-size: 36px;             /* Размер заголовка */
-  color: #235390;              /* Синий */
-  margin-bottom: 22px;         /* Отступ снизу */
-  font-weight: 700;            /* Жирный */
-  letter-spacing: 0.2px;       /* Микро-пробел между буквами */
+  font-size: 36px;
+  color: #235390;
+  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .about p {
-  max-width: 600px;            /* Максимальная ширина */
-  margin: 0 auto 18px auto;    /* Центрируем + отступ снизу */
-  font-size: 17px;             /* Размер текста */
-  color: #222;                 /* Тёмный текст */
-  line-height: 1.7;            /* Межстрочный интервал */
+  max-width: 600px;
+  margin: 0 auto 18px auto;
+  font-size: 17px;
+  color: #222;
+  line-height: 1.7;
 }
 
 /****************************************
   ПРЕИМУЩЕСТВА
 ****************************************/
 .advantages {
-  background: #e9eff6;            /* Белый фон */
-  padding: 44px 0;             /* Отступы */
-  text-align: center;          /* Центрируем текст */
+  background: #e9eff6;
+  padding: var(--section-space) 0; /* единый отступ */
+  text-align: center;
 }
+
 .advantages h2 {
-  font-size: 36px;             /* Размер заголовка */
-  color: #235390;              /* Синий */
-  margin-bottom: 26px;         /* Отступ снизу */
+  font-size: 36px;
+  color: #235390;
+  margin-bottom: 26px;
 }
+
 .advantages-list {
-  display: flex;               /* Flex-контейнер */
-  flex-wrap: wrap;             /* Перенос строк */
-  gap: 30px;                   /* Отступы между карточками */
-  justify-content: center;     /* Центрируем по горизонтали */
-  list-style: none;            /* Без маркеров */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .advantages-list li {
-  max-width: 260px;            /* Максимальная ширина карточки */
-  background: #fff;         /* Цвет карточки */
-  border-radius: 10px;         /* Скругление */
-  padding: 22px 18px;          /* Внутренние отступы */
-  font-size: 17px;             /* Размер шрифта */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Легкая тень */
+  max-width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px 18px;
+  font-size: 17px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
+
 /****************************************
-  виды доставки
+  ВИДЫ ДОСТАВКИ
 ****************************************/
 .services {
   background: #fff;
-  padding: 60px 0;
+  padding: var(--section-space) 0; /* единый отступ */
   text-align: center;
 }
 
@@ -276,12 +281,13 @@ body {
   position: relative;
   background: #e9eff6;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   padding: 22px 20px 18px;
   text-align: left;
   max-width: 320px;
   flex: 1 1 300px;
 }
+
 .service-icon {
   position: absolute;
   top: clamp(8px, 1.5vw, 16px);
@@ -310,7 +316,7 @@ body {
   margin: 0;
 }
 
-/* адаптив */
+/* адаптив для карточек услуг */
 @media (max-width: 768px) {
   .service-item {
     max-width: 95vw;
@@ -318,85 +324,178 @@ body {
 }
 
 /****************************************
-  ОТЗЫВЫ
+  ОТЗЫВЫ — Swiper-карусель (единые стили)
 ****************************************/
 .reviews {
-  background: #e9eff6;         /* Фон блока */
-  padding: 44px 0;             /* Отступы */
-  text-align: center;          /* Центрирование */
-}
-.reviews h2 {
-  font-size: 26px;             /* Размер заголовка */
-  color: #235390;              /* Цвет */
-  margin-bottom: 30px;         /* Отступ снизу */
+  background: #e9eff6;
+  padding: var(--section-space) 0; /* единый отступ */
+  text-align: center;
 }
 
-.review-card {
-  background: #fff;            /* Белый фон карточки */
-  border-radius: 12px;         /* Скругление */
-  box-shadow: 0 2px 14px rgba(34,64,105,0.06); /* Тень */
-  padding: 20px 18px 16px 18px; /* Внутренние отступы */
-  max-width: 260px;            /* Максимальная ширина */
-  text-align: left;            /* Выравнивание текста */
+.reviews h2 {
+  font-size: 36px;
+  color: #235390;
+  margin-bottom: 20px;
 }
+
+/* без стрелок */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+.reviews-slider-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 0;
+}
+
+.reviews-swiper {
+  max-width: 500px;
+  min-width: 280px;
+  flex: 1 1 480px;
+  margin: 0;
+  position: relative;
+}
+
+/* выравниваем высоты слайдов */
+.reviews-swiper .swiper-wrapper { align-items: stretch; }
+
+/* сам слайд — без внутренних отступов */
+.reviews-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0;                 /* ← добавить это */
+}
+
+/* карточка заполняет слайд и не даёт «лишних» полей */
+.reviews-swiper .review-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 28px 24px 20px 24px;
+  width: 100%;                /* ← вместо 440px */
+  max-width: 100%;            /* ← вместо 92vw */
+  min-height: 160px;
+  height: 100%;
+  text-align: left;
+  display: block;
+  margin: 0;                  /* ← вместо margin: 0 auto */
+}
+
 .review-photo {
-  width: 54px;                 /* Размер фото */
+  width: 54px;
   height: 54px;
-  border-radius: 50%;          /* Круглое фото */
-  object-fit: cover;           /* Не искажать */
-  float: left;                 /* Слева */
-  margin-right: 12px;          /* Промежуток */
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-right: 12px;
 }
+
 .review-text {
-  margin-left: 70px;           /* Отступ слева */
-  min-height: 54px;            /* Минимальная высота */
+  margin-left: 70px;
+  min-height: 54px;
 }
+
 .review-card strong {
   display: block;
-  color: #1e3252;              /* Цвет */
+  color: #1e3252;
   font-size: 15px;
   margin-bottom: 4px;
+}
+
+/* ограничить длинные тексты при необходимости */
+/*
+.reviews-swiper .review-text p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+*/
+
+@media (max-width: 900px) {
+  .reviews-slider-flex {
+    max-width: 99vw;
+    min-height: 0;
+  }
+
+  .reviews-swiper {
+    max-width: 98vw;
+    min-width: 10px;
+  }
+
+  .review-photo {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+
+  .review-text {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-swiper .review-card {
+    border-radius: 14px;
+    padding: 10px 2vw 12px 2vw;
+    min-height: 150px;
+    width: 100%;
+    max-width: 92vw;
+  }
 }
 
 /****************************************
   ФОРМА ЗАЯВКИ
 ****************************************/
 .form-section {
-  background: #fff;            /* Белый фон */
-  padding: 48px 0;             /* Отступы */
-  text-align: center;          /* Центрирование */
+  background: #fff;
+  padding: var(--section-space) 0; /* единый отступ */
+  text-align: center;
 }
+
 .form-section h2 {
   font-size: 36px;
   color: #235390;
   margin-bottom: 22px;
 }
+
 .order-form {
-  max-width: 400px;            /* Максимальная ширина */
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;                   /* Отступ между полями */
+  gap: 14px;
 }
+
 .order-form input {
-  padding: 13px 14px;          /* Внутренние отступы */
-  border: 1px solid #c2d2e8;   /* Цвет рамки */
-  border-radius: 8px;          /* Скругление */
-  font-size: 16px;             /* Размер шрифта */
-  transition: border-color 0.2s; /* Анимация */
-  margin: 0 0 12px 0;          /* Только отступ снизу */
-  outline: none;               /* Без синей рамки */
-  width: 100%;                 /* На всю ширину */
-  box-sizing: border-box;      /* Учитывать padding/border */
+  padding: 13px 14px;
+  border: 1px solid #c2d2e8;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  margin: 0 0 12px 0;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .order-form input::placeholder {
-  color: #9aacc6;              /* Цвет placeholder */
-  opacity: 1;                  /* Не прозрачный */
+  color: #9aacc6;
+  opacity: 1;
   font-size: 15px;
 }
+
 .order-form input:focus {
-  border-color: #f9be19;       /* Жёлтая рамка при фокусе */
+  border-color: #f9be19;
 }
+
 .form-tooltip {
   font-size: 13px;
   color: #3b679e;
@@ -405,10 +504,11 @@ body {
   margin-top: -6px;
   margin-bottom: 6px;
   padding: 7px 10px;
-  opacity: 0;                  /* Скрыто по умолчанию */
-  transition: opacity 0.2s;    /* Анимация появления */
+  opacity: 0;
+  transition: opacity 0.2s;
   pointer-events: none;
 }
+
 .order-form .submit-btn {
   background: #235390;
   color: #fff;
@@ -421,6 +521,7 @@ body {
   margin-top: 6px;
   transition: background 0.2s;
 }
+
 .order-form .submit-btn:hover {
   background: #163257;
 }
@@ -430,29 +531,31 @@ body {
 ****************************************/
 footer {
   background: #e9eff6;
-  padding: 22px 0;
+  padding: var(--section-space) 0; /* единый отступ */
   text-align: center;
 }
+
 .footer-content {
   max-width: 900px;
   margin: 0 auto;
   color: #222;
   font-size: 15px;
 }
+
 .footer-content a {
   color: #235390;
   text-decoration: none;
   transition: color 0.2s;
 }
+
 .footer-content a:hover {
   color: #f9be19;
 }
 
 /****************************************
-  АДАПТИВНОСТЬ (Медиа-запросы)
+  АДАПТИВНОСТЬ: переопределяем переменные
 ****************************************/
 @media (max-width: 965px) {
-  /* Общий контейнер шапки — в одну линию */
   .header-inner {
     flex-direction: row;
     align-items: center;
@@ -461,9 +564,13 @@ footer {
     gap: 12px;
   }
 
-  /* Логотип компактнее, сохраняем пропорции свисания */
-  .logo {
+  /* меняем только переменные — зазор и свисание считаются автоматически */
+  :root {
     --logo-h: 56px;
+    --section-space: 44px;
+  }
+
+  .logo {
     width: var(--logo-h);
     height: var(--logo-h);
     margin-top: calc(var(--logo-h) * -0.25);
@@ -473,12 +580,10 @@ footer {
     z-index: 101;
   }
 
-  /* Убираем название и слоган */
   .site-title-block {
     display: none;
   }
 
-  /* Контейнер с телефоном, соцсетями и кнопкой */
   .header-contacts {
     flex-wrap: nowrap;
     gap: 12px;
@@ -502,22 +607,20 @@ footer {
     padding: 6px 12px;
     font-size: 14px;
   }
-
-  /* Зазор под шапкой на планшетах */
-  body { padding-top: 78px !important; }
-  #form { scroll-margin-top: 90px; }
 }
 
 @media (max-width: 600px) {
- 
   .header-phone {
     font-size: 14px;
     white-space: nowrap;
   }
 
-  /* Логотип компактнее, те же пропорции свисания */
-  .logo {
+  :root {
     --logo-h: 52px;
+    --section-space: 32px; /* одинаковые отступы секций на телефонах */
+  }
+
+  .logo {
     width: var(--logo-h);
     height: var(--logo-h);
     margin-top: calc(var(--logo-h) * -0.25);
@@ -525,129 +628,49 @@ footer {
     margin-right: 12px;
   }
 
-  /* Остальные ваши мобильные настройки */
-  body { padding-top: 82px !important; }  /* зазор под шапкой на телефонах */
-  .hero { padding: 96px 0 24px 0; }
-  .hero h1 { font-size: 36px; }
-  .hero-subtitle { font-size: 14px; }
-  .hero-btn { font-size: 13px; padding: 10px 16px; }
-  .advantages-list li, .review-card { max-width: 98vw; }
-  .reviews-list { gap: 16px; }
-  .form-section h2, .reviews h2, .advantages h2 { font-size: 36px; }
-  .order-form { max-width: 95vw; }
-  .footer-content { font-size: 13px; }
-}
-
-/* ===== ОТЗЫВЫ — Swiper-карусель ===== */
-.reviews {
-  background: #e9eff6;
-  padding: 34px 0 38px 0; /* Меньше отступ сверху и снизу */
-  text-align: center;
-}
-.reviews h2 {
-  font-size: 36px;
-  color: #235390;
-  margin-bottom: 20px;
-}
-
-/* Убираем стрелки */
-.swiper-button-prev,
-.swiper-button-next {
-  display: none !important;
-}
-
-.reviews-slider-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0; /* Нет лишнего пространства между элементами */
-  max-width: 600px; /* Плотнее к свайперу */
-  margin: 0 auto;
-  min-height: 0; /* только по карточке */
-}
-
-.reviews-swiper {
-  max-width: 500px;
-  min-width: 280px;
-  flex: 1 1 480px;
-  margin: 0;
-  position: relative;
-}
-
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-}
-.review-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: none;
-  padding: 28px 24px 20px 24px;
-  width: 440px;
-  max-width: 92vw;
-  min-height: 140px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 auto;  /* Центрируем карточку внутри контейнера */
-}
-.swiper-pagination-bullets {
-  position: static !important;
-  margin-top: 16px;
-}
-.swiper-pagination-bullet {
-  background: #1874e3 !important;
-  opacity: 0.22;
-}
-.swiper-pagination-bullet-active {
-  opacity: 1;
-}
-.review-photo {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  object-fit: cover;
-  float: left;
-  margin-right: 12px;
-}
-.review-text {
-  margin-left: 70px;
-  min-height: 54px;
-}
-.review-card strong {
-  display: block;
-  color: #1e3252;
-  font-size: 15px;
-  margin-bottom: 4px;
-}
-
-@media (max-width: 900px) {
-  .reviews-slider-flex {
-    max-width: 99vw;
-    min-height: 0;
-  }
-  .reviews-swiper {
-    max-width: 98vw;
-    min-width: 10px;
+  .hero {
+    padding: var(--section-space) 0;
   }
 
-  .review-photo {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
+  .hero h1 {
+    font-size: 36px;
   }
-  .review-text {
-    margin-left: 50px;
+
+  .hero-subtitle {
+    font-size: 14px;
   }
-  .reviews {
-    padding: 10px 0 16px 0;
+
+  .hero-btn {
+    font-size: 13px;
+    padding: 10px 16px;
   }
+
+  .advantages-list li { max-width: 98vw; }
+
+.reviews-swiper .review-card {
+  border-radius: 14px;
+  padding: 10px 2vw 12px 2vw;
+  min-height: 150px;
+  width: 100%;
+  max-width: 100%;            /* ← чтобы не было «краевого» зазора */
 }
 
-@media (max-width: 600px) {
-  .review-card {
-    border-radius: 14px !important; /* или 16px если хочешь */
-    padding: 10px 2vw 12px 2vw;
+
+  .reviews-list {
+    gap: 16px;
+  }
+
+  .form-section h2,
+  .reviews h2,
+  .advantages h2 {
+    font-size: 36px;
+  }
+
+  .order-form {
+    max-width: 95vw;
+  }
+
+  .footer-content {
+    font-size: 13px;
   }
 }
