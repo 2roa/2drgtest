@@ -448,67 +448,72 @@ footer {
   АДАПТИВНОСТЬ (Медиа-запросы)
 ****************************************/
 @media (max-width: 965px) {
+  /* Общий контейнер шапки — в одну линию */
   .header-inner {
-    flex-direction: column;           /* В колонку */
-    align-items: stretch;
-    gap: 5px;
-    
-  }
-  .logo {
-    width: clamp(96px, 48vw, 128px);
-    height: auto;
-    margin-top: 0;
-    margin-right: 0;
-  }
-  .site-title-block {
-    margin-right: -10px;
+    flex-direction: row;
     align-items: center;
-  }
-  .header-contacts {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .advantages-list, .reviews-list {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media (max-width: 600px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: center;
-    padding: 8px 8vw;
-  }
-  .header-phone {
-    font-size: 18px;             /* Размер номера */
-  }
-  .logo {
-    width: 72px;
-    height: 72px;
-    margin-top: 0;
-    margin-bottom: -12px;
-    margin-right: 0;
-  }
-  .logo-link {
-    margin-bottom: 4px;
-    margin-right: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    padding: 8px 12px;
+    gap: 12px;
   }
 
+  /* Логотип компактнее */
+  .logo {
+    width: auto;
+    height: 48px;
+    margin: 0;
+  }
+
+  /* Убираем название и слоган */
   .site-title-block {
-    align-items: center;
-    margin-right: 0;
+    display: none;
   }
-  .site-name { font-size: 42px; }
-  .site-tagline { font-size: 16px; }
+
+  /* Контейнер с телефоном, соцсетями и кнопкой */
   .header-contacts {
-    gap: 8px;
-    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
   }
-  .header-btn { font-size: 13px; padding: 7px 14px; }
+
+  .header-phone {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .header-socials {
+    gap: 8px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+ 
+  .header-phone {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+   /* Логотип компактнее */
+   .logo {
+    width: auto;
+    height: 48px;
+    margin: 0;
+  }
+
+
+ 
+ 
+  
+ 
+  
   body { padding-top: 156px; }
   .hero { padding: 96px 0 24px 0; }
   .hero h1 { font-size: 36px; }
