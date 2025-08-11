@@ -316,13 +316,6 @@ header {
   margin: 0;
 }
 
-/* адаптив для карточек услуг */
-@media (max-width: 768px) {
-  .service-item {
-    max-width: 95vw;
-  }
-}
-
 /****************************************
   ОТЗЫВЫ — Swiper-карусель (единые стили)
 ****************************************/
@@ -363,29 +356,31 @@ header {
 }
 
 /* выравниваем высоты слайдов */
-.reviews-swiper .swiper-wrapper { align-items: stretch; }
+.reviews-swiper .swiper-wrapper {
+  align-items: stretch;
+}
 
-/* сам слайд — без внутренних отступов */
+/* сам слайд — без внутренних отступов (зазор только через Swiper spaceBetween) */
 .reviews-swiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: 0;                 /* ← добавить это */
+  padding: 0;
 }
 
-/* карточка заполняет слайд и не даёт «лишних» полей */
+/* карточка отзыва — десктоп */
 .reviews-swiper .review-card {
   background: #fff;
   border-radius: 16px;
   box-shadow: none;
   padding: 28px 24px 20px 24px;
-  width: 100%;                /* ← вместо 440px */
-  max-width: 100%;            /* ← вместо 92vw */
+  width: 440px;
+  max-width: 92vw;
   min-height: 160px;
   height: 100%;
   text-align: left;
   display: block;
-  margin: 0;                  /* ← вместо margin: 0 auto */
+  margin: 0 auto;
 }
 
 .review-photo {
@@ -407,48 +402,6 @@ header {
   color: #1e3252;
   font-size: 15px;
   margin-bottom: 4px;
-}
-
-/* ограничить длинные тексты при необходимости */
-/*
-.reviews-swiper .review-text p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-*/
-
-@media (max-width: 900px) {
-  .reviews-slider-flex {
-    max-width: 99vw;
-    min-height: 0;
-  }
-
-  .reviews-swiper {
-    max-width: 98vw;
-    min-width: 10px;
-  }
-
-  .review-photo {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-  }
-
-  .review-text {
-    margin-left: 50px;
-  }
-}
-
-@media (max-width: 600px) {
-  .reviews-swiper .review-card {
-    border-radius: 14px;
-    padding: 10px 2vw 12px 2vw;
-    min-height: 150px;
-    width: 100%;
-    max-width: 92vw;
-  }
 }
 
 /****************************************
@@ -553,21 +506,23 @@ footer {
 }
 
 /****************************************
-  АДАПТИВНОСТЬ: переопределяем переменные
+  МОБИЛКА (≤600px) — единственный media-блок
 ****************************************/
-@media (max-width: 965px) {
+@media (max-width: 975px) {
+  /* переменные под мобилку */
+  :root {
+    --logo-h: 52px;
+    --section-space: 32px; /* одинаковые отступы секций на телефонах */
+  }
+
+  /* шапка */
   .header-inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     padding: 8px 12px;
     gap: 12px;
   }
 
-  /* меняем только переменные — зазор и свисание считаются автоматически */
-  :root {
-    --logo-h: 56px;
-    --section-space: 44px;
+  .site-title-block {
+    display: none;
   }
 
   .logo {
@@ -575,13 +530,8 @@ footer {
     height: var(--logo-h);
     margin-top: calc(var(--logo-h) * -0.25);
     margin-bottom: calc(var(--logo-h) * -0.484375);
+    margin-right: 12px;
     object-fit: contain;
-    position: relative;
-    z-index: 101;
-  }
-
-  .site-title-block {
-    display: none;
   }
 
   .header-contacts {
@@ -607,27 +557,8 @@ footer {
     padding: 6px 12px;
     font-size: 14px;
   }
-}
 
-@media (max-width: 600px) {
-  .header-phone {
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  :root {
-    --logo-h: 52px;
-    --section-space: 32px; /* одинаковые отступы секций на телефонах */
-  }
-
-  .logo {
-    width: var(--logo-h);
-    height: var(--logo-h);
-    margin-top: calc(var(--logo-h) * -0.25);
-    margin-bottom: calc(var(--logo-h) * -0.484375);
-    margin-right: 12px;
-  }
-
+  /* hero */
   .hero {
     padding: var(--section-space) 0;
   }
@@ -645,21 +576,49 @@ footer {
     padding: 10px 16px;
   }
 
-  .advantages-list li { max-width: 98vw; }
-
-.reviews-swiper .review-card {
-  border-radius: 14px;
-  padding: 10px 2vw 12px 2vw;
-  min-height: 150px;
-  width: 100%;
-  max-width: 100%;            /* ← чтобы не было «краевого» зазора */
-}
-
-
-  .reviews-list {
-    gap: 16px;
+  /* преимущества и услуги */
+  .advantages-list li {
+    max-width: 98vw;
   }
 
+  .service-item {
+    max-width: 95vw;
+  }
+
+  /* отзывы */
+  .reviews-slider-flex {
+    max-width: 99vw;
+  }
+
+  .reviews-swiper {
+    max-width: 98vw;
+    min-width: 10px;
+  }
+
+  .reviews-swiper .swiper-slide {
+    padding: 0;
+  }
+
+  .review-photo {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+
+  .review-text {
+    margin-left: 50px;
+  }
+
+  .reviews-swiper .review-card {
+    border-radius: 14px;
+    padding: 10px 2vw 12px 2vw;
+    min-height: 150px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* форма/футер */
   .form-section h2,
   .reviews h2,
   .advantages h2 {
