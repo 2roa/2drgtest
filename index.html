@@ -319,27 +319,26 @@ class="order-form">
 
 
  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- <script>
-   document.addEventListener('DOMContentLoaded', function() {
-   new Swiper('.reviews-swiper', {
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.reviews-swiper', {
   loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  pagination: {
-    el: '.swiper-pagination'
-  },
-  keyboard: {
-    enabled: true
+  autoplay: { delay: 4000, disableOnInteraction: false },
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  pagination: { el: '.swiper-pagination' },
+  keyboard: { enabled: true },
+
+  slidesPerView: 1,
+  spaceBetween: 12,   // мобайл по умолчанию
+
+  breakpoints: {
+    600: { spaceBetween: 16 }, // планшет
+    900: { spaceBetween: 20 }  // десктоп
   }
 });
-   });
- </script>
+
+  });
+</script>
  
 
 
