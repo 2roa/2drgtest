@@ -44,11 +44,15 @@ header {
   
 }
 
+/* Пропорции свисания как на десктопе:
+   - margin-top = -25% высоты
+   - margin-bottom = -48.4375% высоты */
 .logo {
-  width: 128px;                /* Ширина логотипа */
-  height: 128px;               /* Высота логотипа */
-  margin-top: -32px;           /* Поднимаем вверх (визуальный эффект) */
-  margin-bottom: -62px;        /* Уменьшаем высоту шапки (эффект “налезания”) */
+  --logo-h: 128px;                           /* базовая высота логотипа (десктоп) */
+  width: var(--logo-h);                      /* 128px */
+  height: var(--logo-h);                     /* 128px */
+  margin-top: calc(var(--logo-h) * -0.25);   /* -32px */
+  margin-bottom: calc(var(--logo-h) * -0.484375); /* -62px */
   object-fit: cover;           /* Сохраняет пропорции */
   display: block;              /* Блочный элемент */
   margin-right: 28px;  
@@ -457,11 +461,16 @@ footer {
     gap: 12px;
   }
 
-  /* Логотип компактнее */
+  /* Логотип компактнее, сохраняем пропорции свисания */
   .logo {
-    width: auto;
-    height: 48px;
-    margin: 0;
+    --logo-h: 56px;
+    width: var(--logo-h);
+    height: var(--logo-h);
+    margin-top: calc(var(--logo-h) * -0.25);
+    margin-bottom: calc(var(--logo-h) * -0.484375);
+    object-fit: contain;
+    position: relative;
+    z-index: 101;
   }
 
   /* Убираем название и слоган */
@@ -493,6 +502,10 @@ footer {
     padding: 6px 12px;
     font-size: 14px;
   }
+
+  /* Зазор под шапкой на планшетах */
+  body { padding-top: 78px !important; }
+  #form { scroll-margin-top: 90px; }
 }
 
 @media (max-width: 600px) {
@@ -501,20 +514,19 @@ footer {
     font-size: 14px;
     white-space: nowrap;
   }
-   /* Логотип компактнее */
-   .logo {
-    width: auto;
-    height: 48px;
-    margin: 0;
+
+  /* Логотип компактнее, те же пропорции свисания */
+  .logo {
+    --logo-h: 52px;
+    width: var(--logo-h);
+    height: var(--logo-h);
+    margin-top: calc(var(--logo-h) * -0.25);
+    margin-bottom: calc(var(--logo-h) * -0.484375);
+    margin-right: 12px;
   }
 
-
- 
- 
-  
- 
-  
-  body { padding-top: 156px; }
+  /* Остальные ваши мобильные настройки */
+  body { padding-top: 82px !important; }  /* зазор под шапкой на телефонах */
   .hero { padding: 96px 0 24px 0; }
   .hero h1 { font-size: 36px; }
   .hero-subtitle { font-size: 14px; }
@@ -525,6 +537,7 @@ footer {
   .order-form { max-width: 95vw; }
   .footer-content { font-size: 13px; }
 }
+
 /* ===== ОТЗЫВЫ — Swiper-карусель ===== */
 .reviews {
   background: #e9eff6;
